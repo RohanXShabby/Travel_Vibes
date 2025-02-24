@@ -1,11 +1,15 @@
 const imageUrls = [
-    'https://i.ibb.co/b5bk4LJt/Taj-mahal-Timelapse.jpg',
-    'https://i.ibb.co/jPF1sdTd/Kullu-Manali-Trip-in-May.jpg',
-    'https://i.ibb.co/1tGgPhDj/Dharamshala.jpg',
-    'https://i.ibb.co/WWXN0c51/shimla2.jpg',
-    'https://i.ibb.co/BVkxP7js/Beautiful-Valleys-in-Himachal-Pradesh.jpg',
-    'https://i.ibb.co/5h5wp0bn/Darjeeeling-Tour.jpg',
-    'https://i.ibb.co/1fLv7cNY/manalitop.jpg'
+    'https://i.postimg.cc/j5J0GnV2/Andaman-and-Nicobar.webp',
+    'https://i.postimg.cc/q7qdxZj8/Best-Beaches-in-North-Goa-1200x900.webp',
+    'https://i.postimg.cc/0ycsmqdk/darjeeling.webp',
+    'https://i.postimg.cc/3xKhdwGf/Himachal.webp',
+    'https://i.postimg.cc/Xqchbwsj/kashmir.webp',
+    'https://i.postimg.cc/xdhByjk2/kerala.webp',
+    'https://i.postimg.cc/6qrsQspN/rajasthan-tourism-02.webp',
+    'https://i.postimg.cc/pLXNP6Ng/Taj-mahal-Timelapse.jpg',
+    'https://i.postimg.cc/rwhBsNMz/UKspritual.webp',
+    'https://i.postimg.cc/T2rBg6fz/Uttrakhand.webp'
+
 ];
 
 let currentImageIndex = 0;
