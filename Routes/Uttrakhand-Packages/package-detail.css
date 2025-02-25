@@ -71,7 +71,7 @@ main .hero-image h1 {
 
 .about-destination h1 {
     color: #5E6282;
-    font-size: 1rem;
+    font-size: 1.4rem;
     text-align: center;
 }
 
@@ -83,10 +83,12 @@ main .hero-image h1 {
 
 .about-destination p {
     text-align: left;
-    font-size: 1.2rem;
+    font-size: .9rem;
+    padding: .2rem;
 }
 
 .about-destination h3 {
+    font-size: 1.7rem;
     font-family: "volkhov";
 }
 
@@ -326,13 +328,14 @@ ul>li {
     .inc-ex .btns p {
         font-size: 0.8rem;
     }
+
     .about-destination {
-        font-size: 10px;
+        font-size: 12px;
         padding: 5px;
         text-align: center;
     }
 
     .about-destination h3 {
-        font-size: 16px;
+        font-size: 1.4rem;
     }
 }
