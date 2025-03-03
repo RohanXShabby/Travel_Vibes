@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
+    <link rel="shortcut icon" href="../Assets/Logo's/android-chrome-192x192.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../responsive.css">
     <link rel="stylesheet" href="booking.css">
@@ -25,16 +26,18 @@
         </div>
     </nav>
     <div class="booking-form-container">
-        <h1>Booking Form</h1>
-        <form method="POST" class="booking-form">
+        <h1>Reservation Form</h1>
+        <form method="POST"
+            action="https://script.google.com/macros/s/AKfycbz21mS887MyBORPUy70BlwBXceNlXLPQOeCfriMZWTXPfpJMj_02JQBamRYo6hVpyv8sQ/exec"
+            class="booking-form">
             <div class="form-row">
                 <div class="form-group">
                     <label for="first-name">First Name</label>
-                    <input type="text" name="Name1" id="first-name" placeholder="First Name" required>
+                    <input type="text" name="FName" id="first-name" placeholder="First Name" required>
                 </div>
                 <div class="form-group">
                     <label for="first-name">Last Name</label>
-                    <input type="text" id="Name2" name="Last-Name" placeholder="Last Name" required>
+                    <input type="text" id="Name2" name="LName" placeholder="Last Name" required>
                 </div>
             </div>
             <div class="form-row">
@@ -49,44 +52,40 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="departure-date">Departure Date</label>
-                    <input type="date" name="date1" id="departure-date" required>
+                    <label for="departure-date">Departure Date (Your Planned Date)</label>
+                    <input type="date" name="date" id="departure-date" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="return-date">Return Date</label>
+                    <label for="return-date">Return Date (Your Planned Date)</label>
                     <input type="date" name="date2" id="return-date" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="return-date">Location Name</label>
+                    <label for="Adress-date">Your Adress</label>
+                    <input type="text" name="adress" id="Adress" placeholder="Address" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="return-date">Package Name</label>
                     <input type="Input" name="location" id="return-date"
                         placeholder="Location in which You Are Interested" required>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group full-width">
-                    <label for="passengers">Number of passengers</label>
-                    <select id="passengers" name="passengers" required>
-                        <option value="" disabled selected>*Please Select*</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="custom">Other</option>
-                    </select>
-                </div>
-            </div>
-            <input type="submit" name="submit" class="submit-button">
+            <input type="submit" id="submitbtn" name="submit" placeholder="Send Enquiry" class="submit-button">
         </form>
+        <div class="SubmitPopup">
+            <span><img src="./checked-hover.gif"></img>Enquiry Sent Succesfully</span>
+            <button onclick="window.location.href=`./Booking.html`"" >Go Back</button>
+        </div>
+        <div class=" loader">
+                <div class="justify-content-center jimu-primary-loading"></div>
+        </div>
     </div>
-    <footer class="footer">
+    <footer class=" footer">
         <div class="footer-container">
             <!-- Logo and Description -->
             <div class="footer-section">
@@ -105,8 +104,8 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="#">Email</a></li>
-                    <li><a href="tel:+917302287997">7302287997</a></li>
+                    <li><a href="mailto:sachinrawat68924@gmail.com">Email</a></li>
+                    <li><a href="tel:+917310651249">7310651249</a></li>
                 </ul>
             </div>
 
@@ -149,20 +148,47 @@
         </div>
 
         <div class="footer-bottom">
-            <p>All rights reserved @jadoo.co</p>
+            <p>All rights reserved @Travel Vibes</p>
         </div>
     </footer>
 
+
+
     <script>
         const scriptURL =
-            'https://script.google.com/macros/s/AKfycbwr3G_O4WEgOH33HOZZsmHhPOXRNNxU0y0OSOxOUtdeVz9VioR0ktc1nxmF7U7MLwq9Yw/exec'
-        const form = document.forms['google-sheet']
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-                .catch(error => console.error('Error!', error.message))
-        })
+            'https://script.google.com/macros/s/AKfycbz21mS887MyBORPUy70BlwBXceNlXLPQOeCfriMZWTXPfpJMj_02JQBamRYo6hVpyv8sQ/exec';
+
+        const form = document.querySelector(".booking-form");
+
+        if (form) {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+
+                let loader = document.querySelector(".loader");
+                let popup = document.querySelector(".SubmitPopup");
+                let submitBtn = document.querySelector(".submit-button");
+
+                if (loader) loader.style.display = "block";
+                if (submitBtn) submitBtn.disabled = true; // Prevent multiple submissions
+
+                console.log("Submitting Form...");
+
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then((response) => {
+                        if (popup) popup.style.top = "0%";
+                        console.log("Form Submitted Successfully!");
+                    })
+                    .catch(error => console.error('Error!', error.message))
+                    .finally(() => {
+                        if (loader) loader.style.display = "none";
+                        if (submitBtn) submitBtn.disabled = false;
+                    });
+            });
+        } else {
+            console.error("Form not found! Check your class name.");
+        }
+
+
     </script> I
 </body>
 
