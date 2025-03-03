@@ -21,6 +21,18 @@ main {
     justify-content: center;
     padding: 3rem 0rem;
 }
+.destination-heading{
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+}
+.destination-heading h3{
+    color: #333;
+}
+.destination-heading h1{
+    font-family: "volkhov";
+}
 
 .destination-cards {
     width: 100%;
