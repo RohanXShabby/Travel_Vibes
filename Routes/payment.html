@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
+    <title>Payment</title>
     <link rel="shortcut icon" href="../Assets/Logo's/android-chrome-192x192.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../responsive.css">
-    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="payment.css">
 </head>
 
 <body>
@@ -26,67 +26,33 @@
         </div>
     </nav>
 
-
-    <div class="booking-form-container">
-        <h1>Reservation Form</h1>
-        <form method="POST"
-            action="https://script.google.com/macros/s/AKfycbz21mS887MyBORPUy70BlwBXceNlXLPQOeCfriMZWTXPfpJMj_02JQBamRYo6hVpyv8sQ/exec"
-            class="booking-form">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="first-name">First Name</label>
-                    <input type="text" name="FName" id="first-name" placeholder="First Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="first-name">Last Name</label>
-                    <input type="text" id="Name2" name="LName" placeholder="Last Name" required>
-                </div>
+    <div class="payment-details">
+        <h1>
+            <img src="./checked-hover.gif">
+            Request Sent Succesfully
+        </h1>
+        <hr width="100%" size="2" color="black">
+        <div class="scanner">
+            <h1>Pay now</h1>
+            <img class="Qr-code" src="../Assets/Qr code.jpg" alt="">
+            <div class="btns">
+                <a
+                    href='https://wa.me/+917310651249?text=I%27ve%20Successfully%20Made%20a%20Payment%20UPI%20Transaction%20ID%20:'>
+                    Success
+                </a>
+                <a href="./Booking.html">Go Back</a>
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phoneNo" placeholder="+91 1234567890" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="departure-date">Departure Date (Your Planned Date)</label>
-                    <input type="date" name="date" id="departure-date" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="return-date">Return Date (Your Planned Date)</label>
-                    <input type="date" name="date2" id="return-date" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="Adress-date">Your Adress</label>
-                    <input type="text" name="adress" id="Adress" placeholder="Address" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="return-date">Package Name</label>
-                    <input type="Input" name="location" id="return-date"
-                        placeholder="Location in which You Are Interested" required>
-                </div>
-            </div>
-            <input type="submit" id="submitbtn" name="submit" placeholder="Send Enquiry" class="submit-button">
-        </form>
-
-
-
-        <div class=" loader">
-            <div class="justify-content-center jimu-primary-loading"></div>
         </div>
     </div>
-
+    <div class="bank-details">
+        <h2>Bank Details</h2>
+        <br>
+        <span> <b>Account No</b> - 39487714503</span>
+        <span><b>IFSC Code</b> - SBIN0012936</span>
+        <span> <b>ACCOUNT HOLDER</b> - SACHIN RAWAT</span>
+        <span> <b>CIF NUMBER</b> - 90591577528 ( PASSBOOK NO.)</span>
+        <span> <b>Branch</b> - Kargi Grant Dehradun</span>
+    </div>
 
     <footer class=" footer">
         <div class="footer-container">
@@ -178,7 +144,7 @@
 
                 fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                     .then((response) => {
-                        window.location.href = "./payment.html"
+                        if (popup) popup.style.top = "0%";
                         console.log("Form Submitted Successfully!");
                     })
                     .catch(error => console.error('Error!', error.message))
