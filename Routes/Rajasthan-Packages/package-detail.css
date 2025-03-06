@@ -201,6 +201,7 @@ th {
     background-color: #DF6951;
 }
 
+
 .tabs {
     padding: 0rem 8vw;
     display: flex;
@@ -229,7 +230,8 @@ th {
 }
 
 .inc-ex .btns {
-    padding: 2rem 8vw;
+    padding: 2rem 6vw;
+    padding-right: 1vw;
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -238,16 +240,17 @@ th {
 .inc-ex .btns>a {
     text-decoration: none;
     padding: .2rem 1.5vw;
-    font-size: 2rem;
+    font-size: 1.3rem;
     border-radius: 10px;
     border: none;
+    width: 10rem;
     background-color: #DF6951;
     cursor: pointer;
     color: white;
 }
 
 .inc-ex .btns p {
-    font-size: 2rem;
+    font-size: 1.3rem;
     color: #5E6282;
 }
 
@@ -257,6 +260,7 @@ th {
 
 .content {
     padding: 2rem 8vw;
+    padding-right: 1vw;
     max-width: 900vw;
     margin: 0px auto;
     border: 1px solid #ddd;
@@ -338,4 +342,9 @@ ul>li {
     .about-destination h3 {
         font-size: 1.4rem;
     }
+}
+
+.inc-ex-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }

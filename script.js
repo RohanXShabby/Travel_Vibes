@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-const imagesLinks = [
+const urls = [
     'https://i.postimg.cc/j5J0GnV2/Andaman-and-Nicobar.webp',
     'https://i.postimg.cc/q7qdxZj8/Best-Beaches-in-North-Goa-1200x900.webp',
     'https://i.postimg.cc/0ycsmqdk/darjeeling.webp',
@@ -331,16 +331,35 @@ const imagesLinks = [
 
 function preloadImages(urls, batchSize = 10, delay = 500) {
     let index = 0;
+    let loadedImages = [];
+
+    // Try to retrieve loaded images from localStorage
+    try {
+        loadedImages = JSON.parse(localStorage.getItem("loadedImages")) || [];
+    } catch (e) {
+        console.error("Error accessing localStorage:", e);
+    }
 
     function loadBatch() {
-        if (index >= urls.length) return; // Stop when all images are loaded
+        if (index >= urls.length) return;
 
-        const batch = urls.slice(index, index + batchSize); // Load batch
+        const batch = urls.slice(index, index + batchSize);
         batch.forEach(url => {
+            if (loadedImages.includes(url)) {
+                console.log(`Already cached: ${url}`);
+                return;
+            }
+
             const img = new Image();
             img.src = url;
             img.onload = () => {
                 console.log(`Image loaded: ${url}`);
+                loadedImages.push(url);
+                try {
+                    localStorage.setItem("loadedImages", JSON.stringify(loadedImages));
+                } catch (e) {
+                    console.error("Error saving to localStorage:", e);
+                }
             };
             img.onerror = () => {
                 console.error(`Error loading image: ${url}`);
@@ -348,11 +367,10 @@ function preloadImages(urls, batchSize = 10, delay = 500) {
         });
 
         index += batchSize;
-        setTimeout(loadBatch, delay); // Delay between batches to prevent overload
+        setTimeout(loadBatch, delay);
     }
 
     loadBatch();
 }
 
-// Start preloading when DOM is ready
-document.addEventListener("DOMContentLoaded", () => preloadImages(imageUrls));
+document.addEventListener("DOMContentLoaded", () => preloadImages(urls));

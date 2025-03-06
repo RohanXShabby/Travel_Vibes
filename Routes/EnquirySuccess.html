@@ -4,11 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Enquiry Succesfull</title>
+    <link rel="shortcut icon" href="../Assets/Logo's/android-chrome-192x192.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../responsive.css">
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="./payment.css">
 </head>
+
+<style>
+    .payment-details {
+        height: 70vh;
+    }
+
+    .btns a {
+        background: #DF6951;
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+    }
+</style>
 
 <body>
     <nav id="navbar">
@@ -24,32 +40,19 @@
             <button onclick="window.location.href=`tel:+917302287997`">Call Now</button>
         </div>
     </nav>
-    <div class="container">
-        <div class="about-section">
-            <img id="logo" src="/Assets/Travel-vibes-logo.png" alt="TravelAgencyLogo">
-            <div class="about-text">
-                <p>Welcome to <strong>Travel Vibes</strong>, your trusted partner in unforgettable travel experiences.
-                    Whether you're
-                    looking to explore new destinations, relax on pristine beaches, or immerse yourself in vibrant
-                    cultures, we are here to help make your travel dreams come true.</p>
-                <p>Founded with a passion for travel and adventure,<strong>Travel Vibes</strong> is dedicated to
-                    crafting unique and
-                    personalized travel itineraries. Our expert team offers a wide range of travel services, from guided
-                    tours to bespoke vacation packages, designed to meet the needs of every type of traveler.</p>
-            </div>
-        </div>
 
-        <!-- Mission Statement -->
-        <div class="mission">
-            <h2>Our Mission</h2>
-            <p>At <strong>Travel Vibes</strong>, our mission is to provide exceptional travel experiences that inspire
-                and connect
-                people across the world. We believe travel is not just about visiting new places; it's about creating
-                memories, making new connections, and discovering the beauty of the world around us. Our goal is to make
-                every journey special, whether it's your first adventure or your hundredth.</p>
+    <div class="payment-details">
+        <h1>
+            <img src="./checked-hover.gif">
+            Request Sent Succesfully
+        </h1>
+        <hr width="100%" size="2" color="black">
+        <div class="btns">
+            <a href="../index.html">Go Back</a>
         </div>
     </div>
-    <footer class="footer">
+
+    <footer class=" footer">
         <div class="footer-container">
             <!-- Logo and Description -->
             <div class="footer-section">
@@ -70,6 +73,7 @@
                 <ul>
                     <li><a href="mailto:sachinrawat68924@gmail.com">Email</a></li>
                     <li><a href="tel:+917310651249">+91 73106 51249</a></li>
+
                 </ul>
             </div>
 
@@ -112,9 +116,48 @@
         </div>
 
         <div class="footer-bottom">
-            <p>All rights reserved @jadoo.co</p>
+            <p>All rights reserved @Travel Vibes</p>
         </div>
-    </footer>3
+    </footer>
+
+
+
+    <script>
+        const scriptURL =
+            'https://script.google.com/macros/s/AKfycbz21mS887MyBORPUy70BlwBXceNlXLPQOeCfriMZWTXPfpJMj_02JQBamRYo6hVpyv8sQ/exec';
+
+        const form = document.querySelector(".booking-form");
+
+        if (form) {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+
+                let loader = document.querySelector(".loader");
+                let popup = document.querySelector(".SubmitPopup");
+                let submitBtn = document.querySelector(".submit-button");
+
+                if (loader) loader.style.display = "block";
+                if (submitBtn) submitBtn.disabled = true; // Prevent multiple submissions
+
+                console.log("Submitting Form...");
+
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then((response) => {
+                        if (popup) popup.style.top = "0%";
+                        console.log("Form Submitted Successfully!");
+                    })
+                    .catch(error => console.error('Error!', error.message))
+                    .finally(() => {
+                        if (loader) loader.style.display = "none";
+                        if (submitBtn) submitBtn.disabled = false;
+                    });
+            });
+        } else {
+            console.error("Form not found! Check your class name.");
+        }
+
+
+    </script>
 </body>
 
 </html>
