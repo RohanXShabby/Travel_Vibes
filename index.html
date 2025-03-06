@@ -5,14 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Book your dream travel destination with us! Explore the most popular destinations across India.">
-    <title>Travel Vibes | Tour And Travel Agency | Himachla, Uttrakhand, Dev Bhoomi, Kashmir, Goa , Rajesthan,
-        Darjeeling
-        Kerala</title>
+        content="Book your dream travel destination with Travel Vibes! Explore popular destinations like Himachal, Uttarakhand, Kashmir, Goa, Rajasthan, Darjeeling, and Kerala. Customized travel packages for unforgettable adventures.">
+    <meta name="keywords"
+        content="travel agency, tour packages, Himachal, Uttarakhand, Kashmir, Goa, Rajasthan, Darjeeling, Kerala, adventure travel, vacation planning">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="content-language" content="en">
+    <meta name="geo.region" content="IN">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Travel Vibes | Tour and Travel Agency">
+    <meta property="og:description"
+        content="Book your dream travel destination with Travel Vibes! Explore popular destinations like Himachal, Uttarakhand, Kashmir, Goa, Rajasthan, Darjeeling, and Kerala.">
+    <meta property="og:url" content="https://www.travelsvibe.co.in/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Travel Vibes | Tour and Travel Agency">
+    <meta name="twitter:description"
+        content="Book your dream travel destination with Travel Vibes! Explore popular destinations like Himachal, Uttarakhand, Kashmir, Goa, Rajasthan, Darjeeling, and Kerala.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.travelsvibe.co.in/">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./Assets/Logo's/favicon-32x32.png" type="image/x-icon">
+
+    <!-- Title -->
+    <title>Travel Vibes | Tour and Travel Agency | Explore Himachal, Uttarakhand, Kashmir, Goa, Rajasthan, Darjeeling,
+        Kerala</title>
+
+    <!-- Structured Data (Schema Markup) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Travel Vibes",
+        "description": "Book your dream travel destination with Travel Vibes! Explore popular destinations like Himachal, Uttarakhand, Kashmir, Goa, Rajasthan, Darjeeling, and Kerala.",
+        "url": "https://www.travelsvibe.co.in/",
+        "logo": "https://www.travelsvibe.co.in/Assets/Travel-vibes-logo.png",
+        "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 73022 87997",
+        "contactType": "customer service"
+        },
+        "sameAs": [
+        "https://www.facebook.com/travelsvibe",
+        "https://www.instagram.com/travelsvibe",
+        "https://twitter.com/travelsvibe"
+        ]
+    }
+    </script>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+    <!-- Preload Images -->
     <link rel="preload" href="https://i.postimg.cc/j5J0GnV2/Andaman-and-Nicobar.webp" as="image">
     <link rel="preload" href="https://i.postimg.cc/q7qdxZj8/Best-Beaches-in-North-Goa-1200x900.webp" as="image">
     <link rel="preload" href="https://i.postimg.cc/0ycsmqdk/darjeeling.webp" as="image">
@@ -23,6 +72,9 @@
     <link rel="preload" href="https://i.postimg.cc/pLXNP6Ng/Taj-mahal-Timelapse.jpg" as="image">
     <link rel="preload" href="https://i.postimg.cc/rwhBsNMz/UKspritual.webp" as="image">
     <link rel="preload" href="https://i.postimg.cc/T2rBg6fz/Uttrakhand.webp" as="image">
+
+    <!-- Lordicon Script -->
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
 
 <body>
@@ -358,6 +410,36 @@
             <p>All rights reserved @Tracel Vibes</p>
         </div>
     </footer>
+
+    <div id="messagePopup" class="messagePopup">
+        <button onclick="openPopup()">Chat Now</button>
+    </div>
+
+    <!-- The popup form -->
+    <div class="formContainer">
+        <form id="popupForm" class="popupForm" method="POST"
+            action="https://script.google.com/macros/s/AKfycbz21mS887MyBORPUy70BlwBXceNlXLPQOeCfriMZWTXPfpJMj_02JQBamRYo6hVpyv8sQ/exec">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phoneNo" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea><br><br>
+
+            <button type="submit">Send Message</button>
+            <button type="button" onclick="closePopup()">Close</button>
+
+
+        </form>
+
+        <div class="loader" id="loader">
+            <div class="justify-content-center jimu-primary-loading"></div>
+        </div>
+
+    </div>
+
 
     <script src="script.js"></script>
 </body>

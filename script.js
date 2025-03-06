@@ -374,3 +374,48 @@ function preloadImages(urls, batchSize = 10, delay = 500) {
 }
 
 document.addEventListener("DOMContentLoaded", () => preloadImages(urls));
+
+
+function openPopup() {
+    document.getElementById('popupForm').style.display = 'block';
+    document.getElementById('messagePopup').style.display = 'none';
+}
+
+function closePopup() {
+    document.getElementById('popupForm').style.display = 'none';
+    document.getElementById('messagePopup').style.display = 'block';
+}
+
+const scriptURL =
+    'https://script.google.com/macros/s/AKfycbz21mS887MyBORPUy70BlwBXceNlXLPQOeCfriMZWTXPfpJMj_02JQBamRYo6hVpyv8sQ/exec';
+
+const form = document.getElementById("popupForm");
+
+if (form) {
+    form.addEventListener('submit', e => {
+
+        e.preventDefault();
+        let loader = document.getElementById("loader");
+        let submitBtn = document.querySelector(".submit-button"); // This button is not in your HTML, you can remove this line if not used
+
+        if (loader) loader.style.display = "block"; // Show loader
+        if (submitBtn) submitBtn.disabled = true; // Disable submit button (if present)
+
+        console.log("Submitting Form...");
+        console.log(loader)
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) }).then((response) => {
+            window.location.href = "./Routes/EnquirySuccess.html"
+            console.log("Form Submitted Successfully!");
+        })
+            .catch(error => console.error('Error!', error.message))
+            .finally(() => {
+                if (loader) loader.style.display = "none";
+                if (submitBtn) submitBtn.disabled = false;
+            });
+    });
+} else {
+    console.error("Form not found! Check your class name.");
+}
+
+

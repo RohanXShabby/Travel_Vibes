@@ -172,15 +172,18 @@ body {
     gap: 1rem;
 }
 
+.loaderContainer {
+    position: relative;
+}
 
-/* From Uiverse.io by Donewenfu */
+
 .loader {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    display: none;
+    display: block;
     transition: all 0.3s ease;
 }
 
