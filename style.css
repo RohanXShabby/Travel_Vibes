@@ -47,7 +47,6 @@ body {
     position: fixed;
     bottom: 10%;
     right: 10%;
-    /* transform: translate(-50%, -50%); */
     background-color: #DF6951;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

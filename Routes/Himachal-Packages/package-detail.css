@@ -279,6 +279,13 @@ ul>li {
     margin-bottom: .2rem;
 }
 
+.inc-ex-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
 @media (max-width: 768px) {
     .tabs {
         flex-direction: row;
@@ -341,9 +348,10 @@ ul>li {
     .about-destination h3 {
         font-size: 1.4rem;
     }
-}
 
-.inc-ex-flex {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    .inc-ex-flex {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
 }

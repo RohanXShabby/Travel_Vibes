@@ -8,6 +8,10 @@
         font-size: 14px;
     }
 
+    .popupForm {
+        right: 1%;
+    }
+
     .category .category_cards {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -113,6 +117,10 @@
         width: 100%;
         font-size: 48px !important;
         line-height: 3.5rem;
+    }
+
+    .popupForm {
+        right: 5%;
     }
 
     .hero_section .hero_text h1 span img {
