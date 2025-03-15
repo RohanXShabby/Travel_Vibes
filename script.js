@@ -402,7 +402,7 @@ if (form) {
         if (submitBtn) submitBtn.disabled = true; // Disable submit button (if present)
 
         console.log("Submitting Form...");
-        console.log(loader)
+        // console.log(loader)
 
         fetch(scriptURL, { method: 'POST', body: new FormData(form) }).then((response) => {
             window.location.href = "./Routes/EnquirySuccess.html"
